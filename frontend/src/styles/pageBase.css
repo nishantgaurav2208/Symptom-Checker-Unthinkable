@@ -1,0 +1,129 @@
+/* src/styles/pageBase.css
+   Reusable styles for static pages (About, Contact, Privacy, etc.)
+*/
+
+/* Theme variables (reuse from symptomChecker.css for consistency) */
+:root {
+    --bg-1: #f5f8ff;
+    --bg-2: #e9fbff;
+    --primary-color: #7c3aed;
+    --accent: #06b6d4;
+    --muted: #6b7280;
+    --shadow-1: 0 6px 20px rgba(15, 23, 42, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --link-color: #3b82f6;
+    --header-color: #1e293b;
+}
+
+/* Base Page Container */
+.page-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 2.5rem;
+    border-radius: 18px;
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+    border: 1px solid var(--glass-border);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #334155;
+    line-height: 1.7;
+    animation: fadeUp 0.6s ease both; /* Reuse animation */
+}
+
+/* Headings */
+.page-container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.8px;
+    color: var(--primary-color);
+    background: linear-gradient(90deg, #3b82f6, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 2px solid rgba(124, 58, 237, 0.1);
+    padding-bottom: 10px;
+}
+.page-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--header-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+}
+.page-container h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--header-color);
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Paragraphs and Lists */
+.page-container p {
+    margin-bottom: 1rem;
+}
+.page-container ul, .page-container ol {
+    padding-left: 25px;
+    margin-bottom: 1.5rem;
+}
+.page-container li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+.page-container a {
+    color: var(--link-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.page-container a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+/* Back Button (Reusing the style) */
+.btn-back {
+    background: none;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    color: var(--muted);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-back:hover {
+    background-color: rgba(15, 23, 42, 0.03);
+    color: var(--header-color);
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+    .page-container {
+        margin: 20px 10px;
+        padding: 1.5rem;
+    }
+    .page-container h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation (Fade Up) */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.page-footer-text {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted); /* Use the CSS variable here! */
+}

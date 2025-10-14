@@ -1,0 +1,400 @@
+/* symptomChecker.css
+   Modern glass UI + subtle animations for SymptomChecker page
+*/
+
+/* Theme variables */
+:root {
+  --bg-1: #f5f8ff;
+  --bg-2: #e9fbff;
+  --glass: rgba(255, 255, 255, 0.72);
+  --muted: #6b7280;
+  --accent: #06b6d4;
+  --accent-2: #7c3aed;
+  --accent-3: #06b6a4;
+  --card-border: rgba(255, 255, 255, 0.7);
+  --shadow-1: 0 6px 20px rgba(15, 23, 42, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --success: #16a34a;
+  --warning-bg: #fef2f2;
+  --warning-border: #b91c1c;
+  --warning-text: #881515;
+  --primary-color: #7c3aed;
+}
+
+/* Base setup for icons */
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Page container */
+.home-container {
+  max-width: 920px;
+  margin: 2.4rem auto;
+  padding: 2.5rem; /* Increased padding */
+  border-radius: 18px; /* Softer corners */
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1); /* Stronger shadow */
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  animation: fadeUp 0.6s ease both;
+  z-index: 1;
+}
+
+.checker-title {
+  font-size: 2.2rem;
+  margin: 0 0 4px;
+  letter-spacing: -0.8px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home-container .small {
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* Back button */
+.btn-back {
+  background: none;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-back:hover {
+  background-color: rgba(15, 23, 42, 0.03);
+  color: #1e293b;
+}
+
+/* Form layout */
+.symptom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 10px;
+}
+.symptom-form textarea {
+  min-height: 160px; /* Taller text area */
+  padding: 16px 20px;
+  font-size: 17px;
+  border-radius: 16px; /* Softer corners */
+  border: 2px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.05);
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.symptom-form textarea:focus {
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+  border-color: var(--accent-2);
+}
+.symptom-form > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.btn-primary {
+  --btn-h: 48px;
+  height: var(--btn-h);
+  padding: 0 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  /* Loader Ring for "Analyzing..." state */
+}
+
+/* 🛑 Loader for analyzing state */
+.loader-ring {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* 🛑 IMPROVED RESULT CARD AND MARKDOWN STYLES 🛑 */
+
+.result-box {
+  margin-top: 25px;
+  border-radius: 18px;
+  padding: 25px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 255, 0.95));
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.1);
+  animation: popIn 0.5s ease both;
+  z-index: 10;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+}
+.result-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--primary-color);
+}
+
+.markdown-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+/* Styling Markdown Headers (H2) for sections */
+.markdown-content h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding-left: 0;
+  text-transform: capitalize;
+}
+
+/* Styling Markdown Lists */
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 25px;
+  margin: 10px 0 0;
+}
+.markdown-content li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.markdown-content strong {
+  font-weight: 700;
+  color: #334155;
+}
+
+/* Styling the Disclaimer block */
+.markdown-content h2:first-child {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border-left: 6px solid var(--warning-border);
+  margin-top: 0;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 900;
+}
+/* Style the paragraph that usually follows the Disclaimer header */
+.markdown-content h2:first-child + p {
+  padding: 0 18px 15px;
+  margin-top: -8px;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* History */
+.history {
+  margin-top: 30px;
+  border-radius: 18px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(240, 245, 250, 0.6));
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.03);
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.history-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1e293b;
+}
+.history-actions button {
+  background: none;
+  border: 1px solid rgba(2, 6, 23, 0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  font-size: 0.85rem;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.history-actions button:hover {
+  background-color: rgba(2, 6, 23, 0.05);
+}
+.session-id {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    background: rgba(124, 58, 237, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.history-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 0;
+}
+.history-list li {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(2, 6, 23, 0.05);
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.history-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(2, 6, 23, 0.08);
+}
+.history-list li .time {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.history-list li > div:nth-child(2) {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+/* Styling the expandable details */
+.history-list details {
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    border-radius: 8px;
+    padding: 0;
+    margin-top: 10px;
+    background: #f8fafc;
+}
+.history-list summary {
+    font-weight: 600;
+    padding: 8px 12px;
+    cursor: pointer;
+    background: #f1f5f9;
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.2s;
+}
+.history-list summary:hover {
+    background: #e2e8f0;
+}
+.history-result-preview {
+    padding: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.history-result-preview h2:first-child { /* Hides the large disclaimer header inside the history preview */
+    display: none;
+}
+.history-result-preview ul, .history-result-preview ol {
+    margin-top: 0;
+    padding-left: 20px;
+}
+.history-result-preview li {
+    margin-bottom: 4px;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* Floating accent orb */
+.home-container::before {
+  /* ... (keep as is) */
+}
+.home-container::after {
+  /* ... (keep as is) */
+}
+
+/* Media queries (mobile friendly) */
+@media (max-width: 820px) {
+  .home-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .symptom-form > div {
+    justify-content: center;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .history-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .history-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+  .history-actions button {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Animations (keep as is) */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

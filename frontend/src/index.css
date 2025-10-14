@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Smooth scrolling for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base typography and background */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Decorative gradient blob used in hero */
+.blob {
+  position: absolute;
+  inset: auto;
+  width: 28rem;
+  height: 28rem;
+  filter: blur(60px);
+  opacity: 0.35;
+  background: radial-gradient(circle at 30% 30%, #38bdf8 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, #34d399 0%, transparent 55%);
+}
+
