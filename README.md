@@ -146,29 +146,29 @@ heal-sym/
 ### History Management
 - `GET /api/symptoms/history/:sessionId` - Get user's query history
 
-## 🛡️ Security Features
+🛡️ Security Safeguards
 
-- **Rate Limiting**: 10 requests per minute per IP
-- **Input Validation**: Text length limits and sanitization
-- **PII Protection**: Automatic detection and filtering of personal information
-- **CORS Configuration**: Secure cross-origin resource sharing
-- **Error Handling**: Graceful error responses without sensitive information
+Request Throttling: Restricts usage to 10 requests per minute per IP for fair and secure access
+Input Validation: Enforces character limits and sanitizes inputs to prevent malicious data
+PII Protection: Automatically detects and removes any personally identifiable information
+CORS Policy Enforcement: Enables secure and controlled cross-origin communications
+Robust Error Handling: Returns clear, non-sensitive error messages for better stability and safety
 
-## 🎨 UI/UX Features
+🎨 UI/UX Enhancements
 
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Loading States**: Visual feedback during AI processing
-- **History Management**: Local and server-side query history
-- **Markdown Rendering**: Rich text formatting for AI responses
-- **Session Persistence**: Maintains user sessions across browser sessions
-- **Accessibility**: Semantic HTML and keyboard navigation support
+Fully Responsive Layout: Optimized for seamless performance on desktop, tablet, and mobile devices
+Dynamic Loading Indicators: Provides real-time visual feedback during AI processing
+Smart History Management: Syncs user query history locally and on the server for continuity
+Rich Markdown Display: Presents AI responses with formatted, readable text output
+Session Continuity: Retains user progress and history across browsing sessions
+Accessibility Ready: Implements semantic HTML and keyboard-friendly navigation for all users
 
-## ⚠️ Important Disclaimers
+⚠️ Essential Disclaimers
 
-- **Educational Use Only**: This application is designed for educational purposes only
-- **Not Medical Advice**: Does not replace professional medical consultation
-- **No Diagnosis**: The AI provides general insights, not medical diagnoses
-- **Consult Healthcare**: Always seek professional medical advice for health concerns
+For Educational Use Only: Built exclusively for learning and informational purposes
+Not a Substitute for Medical Advice: Does not replace guidance from qualified healthcare professionals
+No Diagnostic Functionality: AI-generated insights are educational, not diagnostic
+Consult Healthcare Providers: Always seek professional medical support for any health-related concerns
 
 ## 🔮 Future Enhancements
 
@@ -198,14 +198,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - React and Vite teams for the excellent development experience
 - MongoDB for the database solution
 - All open-source contributors who made this project possible
-
-## 📞 Support
-
-If you have any questions or need help with the project, please:
-
-1. Check the existing issues
-2. Create a new issue with detailed information
-3. Contact the development team
 
 ---
 
